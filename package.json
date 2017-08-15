@@ -1,0 +1,23 @@
+{
+  "name": "pc_electron",
+  "version": "1.0.0",
+  "description": "try to build pc_application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenzhili/Electron_pc_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenzhili/Electron_pc_app/issues"
+  },
+  "homepage": "https://github.com/chenzhili/Electron_pc_app#readme",
+  "devDependencies": {
+    "electron-packager": "^8.7.2"
+  }
+}
