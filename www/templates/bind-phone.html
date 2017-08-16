@@ -1,0 +1,16 @@
+<ion-view view-title="绑定手机" hide-nav-bar="true" id="login">
+    <ion-content  class="register bind-phone" scroll="false">
+        <div class="buttons back-up" style="width: auto">
+            <yike-back></yike-back>
+        </div>
+        <div class="login-form">
+            <img src="img/login/logo.png" />
+            <input type="number" placeholder="请输入手机号" maxlength="11" ng-model="user.phone"/>
+            <div class="code">
+                <input type="number" placeholder="请输入验证码" maxlength="6" ng-model="user.code" class="fl"/>
+                <button class="fr" id="send-msg" ng-click="sendMsg()">获取验证码</button>
+            </div>
+            <button ng-click="register()">确定</button>
+        </div>
+    </ion-content>
+</ion-view>

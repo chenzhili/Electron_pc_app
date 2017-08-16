@@ -1,0 +1,46 @@
+<ion-view view-title="推荐方案" hide-nav-bar="true" id="recommend">
+    <ion-header-bar align-title="center" class="bar-positive">
+        <div class="buttons">
+            <yike-back></yike-back>
+        </div>
+        <h1 class="title">推荐方案</h1>
+    </ion-header-bar>
+    <div class="bar bar-subheader lottery" id="the-star">
+        <div class="row">
+            <div class="col col-20"><button ng-click="selectStar(1)" ng-class="status.status == 1 ? 'recommend-active' : ''">一星</button></div>
+            <div class="col col-20"><button ng-click="selectStar(2)" ng-class="status.status == 2 ? 'recommend-active' : ''">二星</button></div>
+            <div class="col col-20"><button ng-click="selectStar(3)" ng-class="status.status == 3 ? 'recommend-active' : ''">三星</button></div>
+            <div class="col col-20"><button ng-click="selectStar(4)" ng-class="status.status == 4 ? 'recommend-active' : ''">四星</button></div>
+            <div class="col col-20"><button ng-click="selectStar(5)" ng-class="status.status == 5 ? 'recommend-active' : ''">五星</button></div>
+        </div>
+    </div>
+    <ion-content class="has-header has-subheader" style="padding-top: 30px">
+        <div class="part">
+            <div class="part1" ng-show="status.status == 1" ng-cloak>
+                <div class="program1" ng-repeat="one in oneStar" ui-sref="program-details({id:one.id,type:one.type})">
+                    {{one.name}}
+                </div>
+            </div>
+            <div class="part2" ng-show="status.status == 2" ng-cloak>
+                <div class="program2" ng-repeat="two in twoStar" ui-sref="program-details({id:two.id,type:two.type})">
+                    {{two.name}}
+                </div>
+            </div>
+            <div class="part1" ng-show="status.status == 3" ng-cloak>
+                <div class="program1" ng-repeat="three in threeStar" ui-sref="program-details({id:three.id,type:three.type})">
+                    {{three.name}}
+                </div>
+            </div>
+            <div class="part2" ng-show="status.status == 4" ng-cloak>
+                <div class="program2" ng-repeat="four in fourStar" ui-sref="program-details({id:four.id,type:four.type})">
+                    {{four.name}}
+                </div>
+            </div>
+            <div class="part1" ng-show="status.status == 5" ng-cloak>
+                <div class="program1" ng-repeat="five in fiveStar" ui-sref="program-details({id:five.id,type:five.type})">
+                    {{five.name}}
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

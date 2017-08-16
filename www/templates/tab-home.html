@@ -1,0 +1,95 @@
+<ion-view view-title="首页" hide-nav-bar="true" id="home">
+  <ion-header-bar align-title="center" class="home-header-bar">
+    <h1 class="title">时时彩计划</h1>
+    <!--<div class="buttons">-->
+      <!--<button class="button"><i class="icon ion-android-share-alt"></i></button>-->
+    <!--</div>-->
+  </ion-header-bar>
+  <ion-content>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" ng-repeat="banner in banners"><a ng-click="openBannerLink(banner.href)"><img ng-src="{{banner.image}}" width="100%"></a></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="txtMarquee-left">
+      <div class="bd">
+        <ul class="infoList">
+          <li ng-repeat="notice in noticeList"><span>{{notice.name}}：</span><a ng-bind-html="notice.content"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row plan">
+      <div class="col col-50">
+        <div>
+          <div ng-click="openLink()">
+            <img src="img/home/icon1.png" class="fl"/>
+            <h1 class="fr">
+              购彩大厅
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="col col-50 cl">
+        <div>
+          <div ui-sref="tab.movements">
+            <img src="img/home/icon2.png" class="fl"/>
+            <h1 class="fr">
+              遗漏分析
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="home-note padding">
+      <div class="container-note">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" ng-repeat="item in noteContent" ui-sref="my-message-detail({id:item.id})">{{item.title}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="ssc_content" ui-sref="recommend-program({playType:'ssc'})">
+      <div class="ssc_content_bg">
+        <img src="img/home/ssc_bg.png" alt="">
+      </div>
+      <div class="ssc_c_title">
+        <img src="img/home/ssc_lottery.png">
+      </div>
+      <div class="ssc_content_detail">
+        <div class="ssc_title row row-wrap">
+          <div class="col col-50">
+            <img src="img/home/ssc_content_title.png" alt="">
+          </div>
+          <div class="col col-50 ssc_time">
+            下期开奖倒计时
+          </div>
+        </div>
+        <div class="ssc_detail row row-wrap">
+          <div class="col col-50">
+            <img src="img/home/ssc_content_detail.png" alt="">
+          </div>
+          <div class="col col-50 ssc_time">
+            <span class="fr" ng-show="playStatus.sscStatus == 0">正在开奖...</span>
+            <span class="fr time" ng-show="playStatus.sscStatus == 1">{{ssctime}}</span>
+            <span class="fr time" ng-show="playStatus.sscStatus == 2">00:00:00</span>
+          </div>
+        </div>
+        <div class="ssc_result">
+          <p>第{{ssc.num}}期：</p>
+          <div class="row row-wrap ssc_result_num">
+            <div class="col col-20" ng-repeat="item in [0,1,2,0,1] track by $index" ng-show="playStatus.sscStatus == 0">
+              <div class="ssc_cc ssc_number">
+                {{item}}
+              </div>
+            </div>
+            <div class="col col-20" ng-repeat="cont in ssc.content track by $index" ng-show="playStatus.sscStatus == 1">
+              <div class="ssc_cc">
+                {{cont}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

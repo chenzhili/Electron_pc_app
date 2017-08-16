@@ -1,0 +1,40 @@
+<ion-view view-title="登录" hide-nav-bar="true" id="login">
+    <ion-content scroll="false">
+      <div class="login_title">
+        <p><img src="img/login/login_title.png" alt=""></p>
+        <p><img class="login_logo" src="img/login/login_logo.png" alt=""></p>
+      </div>
+      <div class="login_form">
+        <div class="list list-inset">
+          <div class="login-opc"></div>
+          <div class="login_content">
+            <p><img src="img/login/login_user.png"></p>
+            <label>
+              <input type="text" placeholder="请输入账户"ng-model="user.email" ng-focus="focus()" ng-blur="blur()">
+            </label>
+          </div>
+        </div>
+        <div class="list list-inset">
+          <div class="login-opc"></div>
+          <div class="login_content">
+            <p><img src="img/login/login_pwd.png"></p>
+            <label>
+              <input type="password" placeholder="请输入密码" ng-model="user.password" ng-focus="focus()" ng-blur="blur()">
+            </label>
+          </div>
+        </div>
+        <div class="login_txt">
+          <p ui-sref="reset-password">忘记密码</p>
+        </div>
+        <div class="login_button">
+          <button class="button" ng-click="login()">登录</button>
+        </div>
+        <div class="login_button login_register">
+          <button class="button" ui-sref="register">注册</button>
+        </div>
+        <div class="login_txt login_other">
+          <p ng-click="openModal()">联系客服</p>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

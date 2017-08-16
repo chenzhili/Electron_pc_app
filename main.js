@@ -1,27 +1,32 @@
 /**
  * Created by YK on 2017/8/15.
  */
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
+const {app, BrowserWindow,ipcMain} = require('electron');
+const path = require('path');
+const url = require('url');
 
 // 保持一个对于 window 对象的全局引用，如果你不这样做，
 // 当 JavaScript 对象被垃圾回收， window 会被自动地关闭
-let win
+let win;
 
 function createWindow () {
     // 创建浏览器窗口。
-    win = new BrowserWindow({width: 800, height: 600})
+    win = new BrowserWindow({width: 375, height: 667});
 
     // 加载应用的 index.html。
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
+        pathname: path.join(__dirname, 'www/index.html'),
         protocol: 'file:',
         slashes: true
-    }))
+    }));
 
     // 打开开发者工具。
-    win.webContents.openDevTools()
+    win.webContents.openDevTools();
+
+    ipcMain.on("try_home",function(e,msg){
+        console.log(msg);
+        event.sender.send('asynchronous-reply', 'no')
+    });
 
     // 当 window 被关闭，这个事件会被触发。
     win.on('closed', () => {
@@ -34,8 +39,8 @@ function createWindow () {
 
 // Electron 会在初始化后并准备
 // 创建浏览器窗口时，调用这个函数。
-// 部分 API 在 ready 事件触发后才能使用。
-app.on('ready', createWindow)
+// 部分 API 在 ready 事件触发后才能使用。.
+app.on('ready', createWindow);
 
 // 当全部窗口关闭时退出。
 app.on('window-all-closed', () => {
@@ -44,7 +49,7 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
     app.quit()
 }
-})
+});
 
 app.on('activate', () => {
     // 在这文件，你可以续写应用剩下主进程代码。
@@ -52,4 +57,4 @@ app.on('activate', () => {
     if (win === null) {
     createWindow()
 }
-})
+});

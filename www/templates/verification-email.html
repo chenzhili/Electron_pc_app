@@ -1,0 +1,16 @@
+<ion-view view-title="验证邮箱" hide-nav-bar="true" id="verification-email">
+    <ion-header-bar align-title="center" class="bar-positive">
+        <!--<div class="buttons">-->
+            <!--<yike-back></yike-back>-->
+        <!--</div>-->
+        <h1 class="title">验证邮箱</h1>
+        <div class="buttons complete" ng-click="complete()">
+            <button class="button">完成</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="hint">验证信息已发送到您的邮箱，请去完成验证。</div>
+        <div class="hint tishi-red">提示：若无新邮件，请查看垃圾箱。</div>
+        <button class="validation" ng-click="openEmailLink()">点击进入QQ邮箱</button>
+    </ion-content>
+</ion-view>

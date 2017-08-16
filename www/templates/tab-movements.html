@@ -1,0 +1,98 @@
+<ion-view view-title="开奖走势" hide-nav-bar="true" id="movements">
+  <ion-header-bar align-title="center" style="background-color:#00E1AE;">
+    <div class="buttons">
+      <yike-back></yike-back>
+    </div>
+    <h1 class="title" style="color:#fff;">
+      重庆时时彩
+    </h1>
+    <div class="buttons">
+      <select class="periods" ng-model="movements.num" ng-change="periods()">
+          <option value="30">最近30期</option>
+          <option value="60">最近60期</option>
+          <option value="90">最近90期</option>
+      </select>
+    </div>
+  </ion-header-bar>
+  <div class="bar bar-subheader movements">
+    <div class="row" ng-show="movements.op == 'ssc'">
+      <div class="col col-20" ng-class="ssc.ob == movements.ob ? 'movements-active' : '' " ng-repeat="ssc in sscScreen" ng-click="digitMovements(ssc.ob,ssc.content)">{{ssc.content}}</div>
+    </div>
+    <!--<ion-scroll direction="x" style="width:100%" ng-show="movements.op == 'pk10'">
+      <div class="row">
+        <div class="col col-20" ng-class="pk.ob == movements.ob ? 'movements-active' : '' " ng-repeat="pk in pkScreen" ng-click="digitMovements(pk.ob,pk.content)">{{pk.content}}</div>
+      </div>
+    </ion-scroll>-->
+  </div>
+  <div class="bar bar-subheader heading">
+    <div class="fl">期号</div>
+    <div class="fl">奖号</div>
+    <div class="fl">
+      <h1>{{movements.digit}}</h1>
+      <div>
+        <span class="fl" ng-repeat="num in movementsNum">{{num}}</span>
+      </div>
+    </div>
+  </div>
+  <ion-content style="bottom:72px;" delegate-handle="mainScroll">
+    <canvas id="mycanvas"></canvas>
+    <div class="container" id="container">
+      <ul id="ul" class="ul">
+        <li ng-repeat="data in datas">
+        <div class="fl">{{data.num}}</div>
+        <div class="fl">{{data.content}}</div>
+        <div class="fl">
+          <span class="fl" ng-repeat="num in movementsNum"><span ng-class="num == data.ok ? 'span-active' : ''">{{num}}</span></span>
+        </div>
+      </li>
+      </ul>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer ms">
+    <div>
+      <div class="fl">总出现次数</div>
+      <div class="fl">
+        <span class="fl">{{analysis[9].num}}</span>
+        <span class="fl">{{analysis[0].num}}</span>
+        <span class="fl">{{analysis[1].num}}</span>
+        <span class="fl">{{analysis[2].num}}</span>
+        <span class="fl">{{analysis[3].num}}</span>
+        <span class="fl">{{analysis[4].num}}</span>
+        <span class="fl">{{analysis[5].num}}</span>
+        <span class="fl">{{analysis[6].num}}</span>
+        <span class="fl">{{analysis[7].num}}</span>
+        <span class="fl">{{analysis[8].num}}</span>
+      </div>
+    </div>
+    <div>
+      <div class="fl">最大遗漏次数</div>
+      <div class="fl">
+        <span class="fl">{{analysis[9].not_num}}</span>
+        <span class="fl">{{analysis[0].not_num}}</span>
+        <span class="fl">{{analysis[1].not_num}}</span>
+        <span class="fl">{{analysis[2].not_num}}</span>
+        <span class="fl">{{analysis[3].not_num}}</span>
+        <span class="fl">{{analysis[4].not_num}}</span>
+        <span class="fl">{{analysis[5].not_num}}</span>
+        <span class="fl">{{analysis[6].not_num}}</span>
+        <span class="fl">{{analysis[7].not_num}}</span>
+        <span class="fl">{{analysis[8].not_num}}</span>
+      </div>
+    </div>
+    <div>
+      <div class="fl">最大连出次数</div>
+      <div class="fl">
+        <span class="fl">{{analysis[9].series}}</span>
+        <span class="fl">{{analysis[0].series}}</span>
+        <span class="fl">{{analysis[1].series}}</span>
+        <span class="fl">{{analysis[2].series}}</span>
+        <span class="fl">{{analysis[3].series}}</span>
+        <span class="fl">{{analysis[4].series}}</span>
+        <span class="fl">{{analysis[5].series}}</span>
+        <span class="fl">{{analysis[6].series}}</span>
+        <span class="fl">{{analysis[7].series}}</span>
+        <span class="fl">{{analysis[8].series}}</span>
+      </div>
+    </div>
+  </div>
+</ion-view>

@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/chenzhili/Electron_pc_app#readme",
   "devDependencies": {
-    "electron-packager": "^8.7.2"
+    "electron": "^1.7.5",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-ngmin": "^0.3.0",
+    "gulp-uglify": "^3.0.0"
   }
 }

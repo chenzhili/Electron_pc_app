@@ -1,0 +1,20 @@
+<ion-view view-title="消息详情" hide-nav-bar="true" id="messageDetail">
+  <ion-header-bar align-title="center" class="bar-positive">
+    <div class="buttons">
+      <button class="button button-clear ion-chevron-left white" ui-sref="my-message"></button>
+    </div>
+    <h1 class="title">消息详情</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="titleDetail">{{content.title}}</div>
+    <div class="row row-wrap">
+      <div class="col col-50">
+        作者:{{content.writer}}
+      </div>
+      <div class="col col-50" style="text-align: right;">
+        {{content.time}}
+      </div>
+    </div>
+    <div ng-bind-html="content.content" class="padding"></div>
+  </ion-content>
+</ion-view>

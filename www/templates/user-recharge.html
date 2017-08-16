@@ -1,0 +1,17 @@
+<ion-view view-title="充值" hide-nav-bar="true" id="login">
+    <ion-content  class="recharge" scroll="false">
+        <div class="buttons back-up" style="width: auto">
+            <yike-back></yike-back>
+        </div>
+        <div class="login-form">
+            <img src="img/login/logo.png" />
+            <input type="number" placeholder="请输入手机号" ng-model="user.phone" ng-focus="focus()" ng-blur="blur()" maxlength="11"/>
+            <input type="text" placeholder="请输入卡密" ng-model="user.password" ng-focus="focus()" ng-blur="blur()"/>
+            <button ng-click="recharge()">充值</button>
+        </div>
+        <div class="other">
+            <span ui-sref="login">登录账号</span>
+            <span ng-click="openModal()">联系客服</span>
+        </div>
+    </ion-content>
+</ion-view>

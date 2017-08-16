@@ -1,0 +1,15 @@
+<ion-view view-title="绑定手机" hide-nav-bar="true" id="login">
+    <ion-content  class="register bind-phone" scroll="false">
+        <div class="buttons back-up" style="width: auto">
+            <yike-back></yike-back>
+        </div>
+
+        <div class="login-form">
+            <img src="img/login/login_logo.png" />
+            <div class="linked-phone">
+                <span class="fl">{{user.phone}}</span>
+                <span ui-sref="bind-phone" class="fr">更换手机</span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

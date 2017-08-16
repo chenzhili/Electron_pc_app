@@ -1,0 +1,26 @@
+<ion-view view-title="我的方案" hide-nav-bar="true" id="scheme">
+    <ion-header-bar align-title="center" style="background-color:#00E1AB;">
+        <div class="buttons">
+            <yike-back></yike-back>
+        </div>
+        <h1 class="title" style="color:#fff;">我的方案</h1>
+    </ion-header-bar>
+    <ion-content style="background-color: #f7f7f7">
+        <ion-list>
+            <ion-item ng-repeat="co in collect" ui-sref="program-details({id:co.plan_id,type:co.type})">
+                <div class="item-button-right">
+                    {{co.plan_name}}
+                    <button class="button" style="width:auto">
+                        <i class="icon ion-ios-arrow-right"></i>
+                    </button>
+                </div>
+                        <ion-option-button class="button-assertive" style="background: red;color: #fff" ng-click="deleteCollect(co.id,$index)">
+                            删除
+                        </ion-option-button>
+                    </div>
+                </div>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>
