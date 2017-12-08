@@ -1,0 +1,1 @@
+var ajax=function(n){return function(t,a,c){var o="http://www.0234abc.com/index.php/yike_dashuju/"+t+(a?"?":"");if(a)for(var r in a)o+=r+"="+a[r]+"&";return new Promise(function(t,a){n.ajax({url:o,dataType:"json",processData:!1,type:c||"get",success:function(n){t(n.data)},error:function(n){a(n)}})})}}($);!function(n){n(".back_png").click(function(){history.go(-1)})}($);

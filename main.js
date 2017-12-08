@@ -11,7 +11,7 @@ let win;
 
 function createWindow () {
     // 创建浏览器窗口。
-    win = new BrowserWindow({width: 375, height: 667});
+    win = new BrowserWindow({width: 1200, height: 637});
 
     // 加载应用的 index.html。
     win.loadURL(url.format({
@@ -21,7 +21,7 @@ function createWindow () {
     }));
 
     // 打开开发者工具。
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
 
     ipcMain.on("try_home",function(e,msg){
         console.log(msg);
